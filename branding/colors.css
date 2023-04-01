@@ -1,4 +1,8 @@
 :root {
-    --main-accent: #e9bf50; 
-    /* #84401c #f4de8b #93603f #624a3a #d1c1ad */
+    --main-accent: #ecc147;
+    --wood-light: #93603f;
+    --wood-dark :#624a3a;
+    --background-main: #e5e2e0;
+    --text-dark: #42413f;
+    --text-light: #b3b3b3;
 }
