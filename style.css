@@ -66,8 +66,8 @@ section.hero {
     background-image: url(/ai_illustrations/hero_section.png);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
-    height: 85vh;
+    height: 90vh;
+    overflow-x: hidden;
 }
 
 section.hero .wrapper {
@@ -95,4 +95,56 @@ button.accent {
     font-size: 13px;
     font-weight: 500;
     box-shadow: -8px 10px 20px #0000004a;
+}
+
+section#five-bullet-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.bullet-column {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.bullet-column:nth-child(1) .floating-bullet {
+
+}
+
+.bullet-column:nth-child(2) {
+    grid-template-rows: 2fr 1fr;
+}
+
+#brush-illustration {
+    max-width: 30vw;
+}
+
+.floating-bullet,
+.floating-bullet>.wrapper {
+    display: grid;
+    place-items: center;
+}
+
+.floating-bullet>.wrapper {
+    gap: 1rem;
+}
+
+.floating-bullet>.wrapper h3,
+.floating-bullet>.wrapper p {
+    margin: 0;
+}
+.floating-bullet>.wrapper h3 {
+    color: var(--text-dark);
+    font-size: 30px;
+}
+.floating-bullet>.wrapper p {
+    color: var(--text-light);
+    max-width: 50%;
+    text-align: center;
+}
+
+.floating-bullet>.wrapper>div {
+    overflow-y: hidden;
+    display: grid;
+    place-items: center;
 }
