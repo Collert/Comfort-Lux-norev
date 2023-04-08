@@ -1,0 +1,134 @@
+#gallery {
+    display: grid;
+    place-items: center;
+    height: 40vh;
+}
+
+.accordion {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    max-width: 75vw;
+    height: 100%;
+}
+
+.accordion .panel {
+    --_panel-width: 4rem;
+    --_active-panel-width: 40vw;
+    --_active-panel-padding: 1.5rem 2rem;
+    --_panel-border-radius: 100vh;
+    --_active-panel-border-radius: 0.8rem;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--_panel-border-radius);
+    width: var(--_panel-width);
+    overflow: hidden;
+    transition: all 500ms ease, border-radius 0ms linear;
+    display: grid;
+    place-items: end start;
+    isolation: isolate;
+    padding: .5rem .2rem;
+}
+
+.accordion .panel.was-active {
+    transition: all 500ms ease, border-radius 100ms ease 500ms;
+}
+
+.accordion .panel,
+.accordion .panel * {
+    cursor: pointer;
+    margin: 0;
+}
+
+.accordion .panel.active-panel,
+.accordion .panel.active-panel * {
+    cursor: default;
+    white-space: nowrap;
+}
+
+.accordion .panel .panel-content-wrapper {
+    display: grid;
+    place-items: end center;
+    width: 100%;
+}
+
+.accordion .panel.active-panel .panel-content-wrapper {
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    place-items: end start;
+}
+
+.accordion .panel.active-panel {
+    border-radius: var(--_active-panel-border-radius);
+    width: var(--_active-panel-width);
+    padding: var(--_active-panel-padding);
+}
+
+.accordion .panel.kitchens-img {
+    background-image: url(../../public/ai_illustrations/kitchen.png);
+}
+
+.accordion .panel.bathrooms-img {
+    background-image: url(../../public/ai_illustrations/bathroom.png);
+}
+
+.accordion .panel.bedrooms-img {
+    background-image: url(../../public/ai_illustrations/bedroom.png);
+}
+
+.accordion .panel.living-img {
+    background-image: url(../../public/ai_illustrations/livery.png);
+}
+
+.active-panel .accordion-icon {
+    font-size: 50px;
+}
+
+.accordion-icon {
+    background-color: white;
+    border-radius: 50%;
+    padding: .5rem;
+    font-size: 20px;
+}
+
+.accordion-trigger {
+    background: transparent;
+    border: none;
+    display: grid;
+    place-items: center;
+    
+}
+
+.panel-content {
+    display: grid;
+    gap: .5rem;
+}
+
+.panel-content p,
+.panel-content h2 {
+    cursor: default;
+    color: white;
+}
+
+.accordion .panel .panel-content-wrapper::after {
+    content: '';
+    background: linear-gradient(180deg, rgba(209,175,148,0) 20%, rgba(0,0,0,1) 100%);
+    position: absolute;
+    width: var(--_panel-width);
+    height: 20%;
+    z-index: -1;
+    border-radius: var(--_panel-border-radius);
+    margin: -.5rem -.2rem;
+    transition: all 500ms ease, border-radius 0ms linear;
+}
+
+.accordion .panel.active-panel .panel-content-wrapper::after {
+    margin: -1.5rem -2rem;
+    width: var(--_active-panel-width);
+    border-radius: var(--_active-panel-border-radius);
+}
+
+.accordion .panel.was-active .panel-content-wrapper::after {
+    transition: all 500ms ease, border-radius 100ms ease 500ms;
+}

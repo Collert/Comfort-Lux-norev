@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Hero () {
     return (
-        <section id="hero" class="hero">
-            <div class="wrapper">
+        <section id="hero" className="hero">
+            <div className="wrapper">
                 <div>
                     <h1>Title Here</h1>
                     <p>
@@ -11,7 +11,7 @@ export default function Hero () {
                         cumque architecto veniam animi excepturi amet dolore. Assumenda labore voluptatibus et fuga
                         perferendis quidem aliquid consequatur rem.
                     </p>
-                    <button class="accent">OMG CLICK ME NOW</button>
+                    <button className="accent">OMG CLICK ME NOW</button>
                 </div>
             </div>
         </section>
