@@ -1,11 +1,24 @@
-@import url(/branding/colors.css);
+@import url(colors.css);
 
 :root {
-    --header-height: 8vh;
+    --header-height: 10vh;
+}
+
+html{
+    scroll-behavior:smooth
 }
 
 * {
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+section {
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none;
 }
 
 body {
@@ -39,6 +52,10 @@ header {
     width: 100vw;
 }
 
+#divider-svg {
+    fill: var(--main-accent);
+}
+
 header>.menu {
     display: flex;
     gap: 1rem;
@@ -63,10 +80,11 @@ header>.menu>div {
 }
 
 section.hero {
-    background-image: url(/ai_illustrations/hero_section.png);
+    background-image: url(../public/ai_illustrations/hero_section.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 90vh;
+    margin-top: 0;
     overflow-x: hidden;
 }
 
@@ -107,10 +125,6 @@ section#five-bullet-points {
     grid-template-rows: 1fr 1fr;
 }
 
-.bullet-column:nth-child(1) .floating-bullet {
-
-}
-
 .bullet-column:nth-child(2) {
     grid-template-rows: 2fr 1fr;
 }
@@ -147,4 +161,85 @@ section#five-bullet-points {
     overflow-y: hidden;
     display: grid;
     place-items: center;
+}
+
+#gallery {
+    display: grid;
+    place-items: center;
+}
+
+.accordion {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    max-width: 50vw;
+}
+
+.accordion .panel {
+    background-size: cover;
+    background-position: center;
+    border-radius: 100vh;
+    width: 3rem;
+    overflow: hidden;
+    transition: all 500ms ease, border-radius 0ms linear;
+}
+.accordion .panel.was-active {
+    transition: all 500ms ease, border-radius 10ms linear 500ms;
+}
+
+.accordion .panel,
+.accordion .panel * {
+    cursor: pointer;
+}
+
+.accordion .panel.active-panel,
+.accordion .panel.active-panel * {
+    cursor: default;
+}
+
+.accordion .panel.active-panel {
+    border-radius: 0.8rem;
+    width: 40vw;
+}
+
+.accordion .panel:nth-child(1) {
+    background-image: url(../public/ai_illustrations/kitchen.png);
+}
+
+.accordion .panel:nth-child(2) {
+    background-image: url(../public/ai_illustrations/bathroom.png);
+}
+
+.accordion .panel:nth-child(3) {
+    background-image: url(../public/ai_illustrations/bedroom.png);
+}
+
+.accordion .panel:nth-child(4) {
+    background-image: url(../public/ai_illustrations/livery.png);
+}
+
+.accordion-icon {
+    background-color: white;
+    border-radius: 50%;
+    padding: .5rem;
+}
+
+.accordion-trigger {
+    background: transparent;
+    border: none;
+    display: grid;
+    grid-template-columns: auto auto;
+    
+}
+
+.panel-content p {
+    cursor: default;
+}
+
+.panel-title {
+    display: none;
+}
+
+.panel.active-panel .panel-title {
+    display: block;
 }
