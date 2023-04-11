@@ -1,7 +1,7 @@
 #gallery {
     display: grid;
     place-items: center;
-    height: 40vh;
+    height: 60vh;
 }
 
 .accordion {
@@ -16,23 +16,27 @@
     --_panel-width: 4rem;
     --_active-panel-width: 40vw;
     --_active-panel-padding: 1.5rem 2rem;
-    --_panel-border-radius: 100vh;
+    --_panel-border-radius: 10vh;
     --_active-panel-border-radius: 0.8rem;
+    --_icon-padding: .5rem;
+    --_icon-font-size: 30px;
+    --_icon-height: calc(var(--_icon-font-size) + 2*var(--_icon-padding));
 
     background-size: cover;
     background-position: center;
     border-radius: var(--_panel-border-radius);
     width: var(--_panel-width);
     overflow: hidden;
-    transition: all 500ms ease, border-radius 0ms linear;
+    transition: all 500ms ease, border-radius 300ms ease;
     display: grid;
     place-items: end start;
     isolation: isolate;
-    padding: .5rem .2rem;
+    padding: 1.5rem .2rem;
 }
 
 .accordion .panel.was-active {
-    transition: all 500ms ease, border-radius 100ms ease 500ms;
+    border-radius: var(--_active-panel-border-radius);
+    transition: all 500ms ease, border-radius 300ms ease 500ms;
 }
 
 .accordion .panel,
@@ -44,17 +48,20 @@
 .accordion .panel.active-panel,
 .accordion .panel.active-panel * {
     cursor: default;
-    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .accordion .panel .panel-content-wrapper {
     display: grid;
     place-items: end center;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
     width: 100%;
+    position: relative;
 }
 
 .accordion .panel.active-panel .panel-content-wrapper {
-    grid-template-columns: auto 1fr;
+    /* grid-template-columns: auto 1fr; */
     gap: 2rem;
     place-items: end start;
 }
@@ -82,27 +89,34 @@
 }
 
 .active-panel .accordion-icon {
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .accordion-icon {
     background-color: white;
     border-radius: 50%;
-    padding: .5rem;
-    font-size: 20px;
+    padding: var(--_icon-padding);
+    font-size: var(--_icon-font-size);
 }
 
 .accordion-trigger {
     background: transparent;
     border: none;
     display: grid;
+    height: var(--_icon-height);
     place-items: center;
+    transition: height 500ms ease;
     
+}
+
+.active-panel .accordion-trigger {
+    height: 100%;
 }
 
 .panel-content {
     display: grid;
     gap: .5rem;
+    /* position: relative; */
 }
 
 .panel-content p,
@@ -111,15 +125,26 @@
     color: white;
 }
 
+.panel.active-panel:not(.was-active) h2,
+.panel.active-panel:not(.was-active) p {
+    /* position: absolute; */
+}
+
+.panel.was-active:not(.active-panel) .panel-content-wrapper,
+.panel.active-panel:not(.was-active) .panel-content-wrapper {
+    width: calc(var(--_active-panel-width) - 4rem);
+}
+
 .accordion .panel .panel-content-wrapper::after {
     content: '';
     background: linear-gradient(180deg, rgba(209,175,148,0) 20%, rgba(0,0,0,1) 100%);
     position: absolute;
     width: var(--_panel-width);
-    height: 20%;
+    height: calc(2*var(--_icon-height));
+    left: 0;
     z-index: -1;
     border-radius: var(--_panel-border-radius);
-    margin: -.5rem -.2rem;
+    margin: -1.5rem -.2rem;
     transition: all 500ms ease, border-radius 0ms linear;
 }
 
@@ -127,8 +152,9 @@
     margin: -1.5rem -2rem;
     width: var(--_active-panel-width);
     border-radius: var(--_active-panel-border-radius);
+    height: 200%;
 }
 
 .accordion .panel.was-active .panel-content-wrapper::after {
-    transition: all 500ms ease, border-radius 100ms ease 500ms;
+    transition: all 500ms ease, border-radius 300ms ease 500ms;
 }

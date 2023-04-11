@@ -39,15 +39,15 @@ export default function GalleryPanel (props) {
                                             ${dictionary[props.theme].backgroundImg}`}
             >
             <div className="panel-content-wrapper">
-                <h2 id={`panel${props.id}-heading`}><button
+                <button
                     className="accordion-trigger"
                     aria-controls={`panel${props.id}-content`}
                     aria-expanded={props.active === props.id}
                     >
                     <span className="material-symbols-outlined accordion-icon">{dictionary[props.theme].icon}</span>
-                </button></h2>
+                </button>
                 
-                {props.active === props.id &&
+                {(props.active === props.id || props.prevActivePanel === props.id) &&
                 <div 
                 className="panel-content" 
                 id={`panel${props.id}-content`}
