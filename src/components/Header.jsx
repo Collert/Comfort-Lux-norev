@@ -1,8 +1,17 @@
 import React from "react";
 
 export default function Header (props) {
+
+    const [onTop, setOnTop] = React.useState(true)
+
+    React.useEffect(()=>{
+        window.addEventListener('scroll', ()=>{
+            window.scrollY === 0 ? setOnTop(true) : setOnTop(false)
+        })
+    },[])
+
     return (
-        <header>
+        <header className={!onTop ? "scrolled" : ""}>
             <div className="logo">
                 <span></span>
             </div>
@@ -13,9 +22,13 @@ export default function Header (props) {
                 </svg>
             </div>
             <div className="menu">
-                <div><a href="#hero" className="menu-item active">HOME</a></div>
-                <div><a href="#gallery" className="menu-item">GALLERY</a></div>
-                <div><a className="menu-item">LOL</a></div>
+                <div><a href="#hero" className="menu-item active">STRONA GŁÓWNA</a></div>
+                <div><a href="#hero" className="menu-item">O NAS</a></div>
+                <div><a href="#hero" className="menu-item">ZAKRES USŁUG</a></div>
+                <div><a href="#gallery" className="menu-item">PORTFOLIO</a></div>
+                <div><a href="#gallery" className="menu-item">DLA CZEGO MY?</a></div>
+                <div><a href="#gallery" className="menu-item">OPINIE KLIENTÓW</a></div>
+                <div><a href="#gallery" className="menu-item">KONTAKT</a></div>
             </div>
         </header>
     )

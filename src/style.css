@@ -43,13 +43,20 @@ h1 {
 
 header {
     height: var(--header-height);
-    /* background-color: aliceblue; */
+    background-color: transparent;
     padding: 1rem 3rem;
     display: flex;
     flex-direction: row;
     gap: 3rem;
     position: fixed;
     width: 100vw;
+    transition: all 200ms ease;
+    border-bottom: none;
+}
+
+header.scrolled {
+    background-color: var(--background-main);
+    border-bottom: 1px solid black;
 }
 
 #divider-svg {
