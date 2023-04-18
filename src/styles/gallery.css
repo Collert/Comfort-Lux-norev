@@ -329,6 +329,7 @@
     animation: reveal-gallery 2s ease;
     display: grid;
     grid-template-rows: auto 1fr;
+    z-index: 20;
 }
 
 .full-gallery>* {

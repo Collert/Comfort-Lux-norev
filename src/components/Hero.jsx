@@ -5,13 +5,12 @@ export default function Hero () {
         <section id="hero" className="hero">
             <div className="wrapper">
                 <div>
-                    <h1>Title Here</h1>
+                    <h1>Wykończenia wnętrz</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos ducimus praesentium voluptatum
-                        cumque architecto veniam animi excepturi amet dolore. Assumenda labore voluptatibus et fuga
-                        perferendis quidem aliquid consequatur rem.
+                        Wykonujemy kompleksowe remonty domów, mieszkań, biur oraz prace wykończeniowe pod klucz.
+                        Dzięki bogatemu doświadczeniu jesteśmy w stanie wykonać każde zlecenie. Poznaj nas lepiej!
                     </p>
-                    <button className="accent">OMG CLICK ME NOW</button>
+                    <button className="accent">ZAMÓW DARMOWĄ WYCENĘ</button>
                 </div>
             </div>
         </section>
