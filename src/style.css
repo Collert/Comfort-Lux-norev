@@ -5,7 +5,7 @@
 }
 
 html{
-    scroll-behavior:smooth
+    scroll-behavior: smooth;
 }
 
 * {
@@ -43,7 +43,7 @@ h1 {
 
 header {
     height: var(--header-height);
-    background-color: transparent;
+    background: transparent;
     padding: 1rem 3rem;
     display: flex;
     flex-direction: row;
@@ -55,9 +55,24 @@ header {
     z-index: 5;
 }
 
+header::after {
+    content: '';
+    left: 0;
+    bottom: -50%;
+    position: absolute;
+    width: 100%;
+    transition: all 200ms ease;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent 0%, transparent 100%);
+}
+
 header.scrolled {
-    background-color: var(--background-main);
-    border-bottom: 1px solid black;
+    background: var(--background-main);
+    /* border-bottom: 1px solid black; */
+}
+
+header.scrolled::after {
+    background: linear-gradient(to bottom, var(--background-main)0%, transparent 100%);
 }
 
 #divider-svg {

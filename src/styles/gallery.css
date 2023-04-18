@@ -5,12 +5,15 @@
 #gallery {
     --_buttons-background-color: white;
     --_panel-width: 4rem;
-
+    
     display: grid;
     place-items: center;
     height: var(--_gallery-height);
     position: relative;
     isolation: isolate;
+}
+
+#gallery:hover {
     z-index: 20;
 }
 
