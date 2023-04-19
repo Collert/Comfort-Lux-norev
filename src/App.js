@@ -6,6 +6,7 @@ import FloatingBullets from './components/FloatingBullets';
 import Gallery from './components/Gallery';
 import AboutUs from './components/AboutUs';
 import WhyUs from './components/WhyUs';
+import WorkWithUs from './components/WorkWithUs';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <FloatingBullets/>
       <Gallery/>
       <WhyUs/>
+      <WorkWithUs/>
     </>
   )
 }

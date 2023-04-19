@@ -1,0 +1,213 @@
+@import url(../colors.css);
+
+#timeline {
+    display: grid;
+    grid-template-columns: auto 1fr auto 1fr auto;
+    height: 80vh;
+    gap: 2rem;
+    margin: 3rem 0;
+
+    --segment-animation-duration: 3s;
+    --circle-animation-duration: calc(var(--segment-animation-duration) * (2/3));
+}
+
+#timeline h2 {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+    color: var(--main-accent);
+}
+
+#timeline h3 {
+    font-size: 25px;
+}
+
+#left-points,
+#line,
+#right-points {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+#timeline .section {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#left-points .section {
+    place-items: center end;
+    text-align: end;
+}
+
+#right-points .section {
+    place-items: center start;
+}
+
+#line .section {
+    position: relative;
+}
+
+.line-part {
+    background-color: var(--main-accent);
+    display: block;
+    height: 100%;
+    width: 1rem;
+    position: absolute;
+}
+
+#line .section:nth-child(1) .line-part {
+    border-radius: 100vh 100vh 0 0;
+}
+
+#line .section:nth-last-child(1) .line-part {
+    border-radius: 0 0 100vh 100vh;
+}
+
+.circle {
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+}
+
+.inner-circle,
+.outer-circle {
+    border-radius: 50%;
+    position: absolute;
+}
+
+.outer-circle {
+    background-color: var(--text-dark);
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 0 100% 0);
+}
+
+.outer-circle::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.inner-circle {
+    box-sizing: content-box;
+    background-color: var(--main-accent);
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: .2rem solid var(--background-main);
+}
+
+.animate .inner-circle {
+    animation: inner-animation 500ms ease both;
+}
+
+.animate .outer-circle {
+    animation: outer-animation var(--circle-animation-duration) calc((var(--segment-animation-duration) / 6) + var(--sequence-multiplier)) linear both;
+}
+
+.animate .line-part {
+    animation: line-animation var(--segment-animation-duration) linear both;
+}
+
+.animate #right-points h3,
+.animate #left-points h3 {
+    animation: text-animation var(--circle-animation-duration) calc((var(--segment-animation-duration) / 6) + var(--sequence-multiplier)) ease both;
+}
+
+.animate .section:nth-child(1) .outer-circle,
+.animate .section:nth-child(1) h3 {
+    --sequence-multiplier: 0s;
+}
+
+.animate .section:nth-child(2) .inner-circle {
+    animation-delay: var(--segment-animation-duration);
+}
+
+.animate .section:nth-child(2) .outer-circle,
+.animate .section:nth-child(2) h3 {
+    --sequence-multiplier: var(--segment-animation-duration);
+}
+
+.animate .section:nth-child(2) .line-part {
+    animation-delay: var(--segment-animation-duration);
+}
+
+.animate .section:nth-child(3) .inner-circle {
+    animation-delay: calc(2 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(3) .outer-circle,
+.animate .section:nth-child(3) h3 {
+    --sequence-multiplier: calc(2 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(3) .line-part {
+    animation-delay: calc(2 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(4) .inner-circle {
+    animation-delay: calc(3 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(4) .outer-circle,
+.animate .section:nth-child(4) h3 {
+    --sequence-multiplier: calc(3 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(4) .line-part {
+    animation-delay: calc(3 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(5) .inner-circle {
+    animation-delay: calc(4 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(5) .outer-circle,
+.animate .section:nth-child(5) h3 {
+    --sequence-multiplier: calc(4 * var(--segment-animation-duration));
+}
+
+.animate .section:nth-child(5) .line-part {
+    animation-delay: calc(4 * var(--segment-animation-duration));
+}
+
+@keyframes line-animation {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+    16.66%,
+    83.33% {
+        clip-path: inset(0 0 50% 0);
+    }
+    to {
+        clip-path: inset(0 0 0% 0);
+    }
+}
+
+@keyframes inner-animation {from {opacity: 0;} to {opacity: 1;}}
+
+@keyframes outer-animation {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+    to {
+        clip-path: inset(0 0 0% 0);
+    }
+}
+
+@keyframes text-animation {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
