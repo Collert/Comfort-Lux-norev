@@ -3,7 +3,7 @@
 #timeline {
     display: grid;
     grid-template-columns: auto 1fr auto 1fr auto;
-    height: 80vh;
+    min-height: 80vh;
     gap: 2rem;
     margin: 3rem 0;
 
