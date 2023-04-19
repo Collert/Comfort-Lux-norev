@@ -1,0 +1,35 @@
+@import url(../colors.css);
+
+#why-us {
+    grid-template-rows: auto auto;
+    place-items: center;
+}
+
+#why-us,
+#why-us .points,
+#why-us .point {
+    display: grid;
+}
+
+#why-us h3,
+#why-us h2 {
+    text-align: center;
+}
+
+#why-us h3 {
+    margin: .5rem;
+}
+
+#why-us h2 {
+    font-size: 48px;
+}
+
+#why-us .points {
+    grid-template-columns: repeat(5, 1fr);
+    width: 80%;
+}
+
+#why-us .point {
+    place-items: start center;
+    grid-template-rows: 1fr 1fr;
+}
