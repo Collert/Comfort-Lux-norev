@@ -33,7 +33,7 @@ export default function Header (props) {
                 <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">PORTFOLIO</a></div>
                 <div><a onClick={scrollIntoMiddle} href="#why-us" className="menu-item">DLA CZEGO MY?</a></div>
                 {/* <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">OPINIE KLIENTÓW</a></div> */}
-                <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">KONTAKT</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#contact" className="menu-item">KONTAKT</a></div>
             </div>
         </header>
     )

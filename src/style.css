@@ -137,6 +137,7 @@ section.hero .wrapper p {
     margin: 2rem 0;
 }
 
+a.accent,
 button.accent {
     background-color: var(--main-accent);
     border: none;
@@ -145,6 +146,7 @@ button.accent {
     font-size: 13px;
     font-weight: 500;
     box-shadow: -8px 10px 20px #0000004a;
+    color: var(--text-dark);
 }
 
 section#five-bullet-points:hover {

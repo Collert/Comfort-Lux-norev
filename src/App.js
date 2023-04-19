@@ -7,6 +7,7 @@ import Gallery from './components/Gallery';
 import AboutUs from './components/AboutUs';
 import WhyUs from './components/WhyUs';
 import WorkWithUs from './components/WorkWithUs';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Gallery/>
       <WhyUs/>
       <WorkWithUs/>
+      <Contact/>
     </>
   )
 }

@@ -10,7 +10,7 @@ export default function Hero () {
                         Wykonujemy kompleksowe remonty domów, mieszkań, biur oraz prace wykończeniowe pod klucz.
                         Dzięki bogatemu doświadczeniu jesteśmy w stanie wykonać każde zlecenie. Poznaj nas lepiej!
                     </p>
-                    <button className="accent">ZAMÓW DARMOWĄ WYCENĘ</button>
+                    <a href="#contact" className="accent">ZAMÓW DARMOWĄ WYCENĘ</a>
                 </div>
             </div>
         </section>
