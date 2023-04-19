@@ -5,22 +5,22 @@ export default function GalleryPanel (props) {
     const dictionary = {
         "bathroom":{
             icon:"shower",
-            title:"Bathrooms",
+            title:"Łazienki",
             backgroundImg:"bathrooms-img"
         },
         "kitchen":{
             icon:"kitchen",
-            title:"Kitchens",
+            title:"Kuchnie",
             backgroundImg:"kitchens-img"
         },
         "livery":{
             icon:"chair",
-            title:"Living Spaces",
+            title:"Salony",
             backgroundImg:"living-img"
         },
         "bedroom":{
             icon:"bed",
-            title:"Bedrooms",
+            title:"Sypialnie",
             backgroundImg:"bedrooms-img"
         },
     }
