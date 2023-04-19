@@ -1,0 +1,85 @@
+:root {
+    --about-us-padding-top: 1rem;
+    --about-us-padding-bottom: 3rem;
+}
+
+#about-us {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    padding: var(--about-us-padding-top) 5rem;
+    /* background: white; */
+    background: url(../../public/ai_illustrations/marble_texture_crop.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-top: 0;
+    padding-bottom: var(--about-us-padding-bottom);
+    position: relative;
+}
+
+#about-us::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to bottom, transparent 0%, var(--background-main) 100%);
+    bottom: 0;
+}
+
+#about-us .text {
+    padding: 3rem;
+}
+
+#about-us .text>h2 {
+    font-size: 40px;
+}
+
+#about-us .text>h3 {
+    font-size: 30px;
+}
+
+#about-us .text>p {
+    font-size: 20px;
+    color: var(--main-accent);
+}
+
+.img-container>img {
+    margin-top: calc(-1 * var(--about-us-padding-top) - var(--about-us-padding-top) - 18%);
+    width: 100%;
+}
+
+#about-us li {
+    font-size: 20px;
+    position: relative;
+    margin-bottom: .5rem;
+}
+
+#about-us li span {
+    position: absolute;
+    top: 0%;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding-left: 1rem;
+    color: var(--main-accent);
+}
+
+#about-us li::marker {
+    fill: var(--main-accent);
+}
+
+#about-us li:nth-child(1)::marker {
+    content: url(../../public/icons/hotel_class_FILL0_wght400_GRAD0_opsz48.svg);
+}
+#about-us li:nth-child(2)::marker {
+    content: url(../../public/icons/credit_card_off_FILL0_wght400_GRAD0_opsz48.svg);
+}
+#about-us li:nth-child(3)::marker {
+    content: url(../../public/icons/request_quote_black_48dp.svg);
+}
+#about-us li:nth-child(4)::marker {
+    content: url(../../public/icons/checklist_black_48dp.svg);
+}
+#about-us li:nth-child(5)::marker {
+    content: url(../../public/icons/engineering_black_48dp.svg);
+}

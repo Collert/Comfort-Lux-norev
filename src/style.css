@@ -17,6 +17,11 @@ section {
     margin: 1rem 0;
 }
 
+span.nav-anchor {
+    display: block;
+    transform: translateY(-50vh);
+}
+
 a {
     text-decoration: none;
 }
@@ -30,8 +35,11 @@ body {
 h1 {
     font-size: 60px;
     margin: 0;
-    color: var(--text-dark);
     text-shadow: 5px 5px 30px rgba(0, 0, 0, 0.623); /* Idk how I feel about this tho */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
 }
 
 .logo>span {
@@ -109,6 +117,7 @@ section.hero {
     height: 90vh;
     margin-top: 0;
     overflow-x: hidden;
+    margin-bottom: 0;
 }
 
 section.hero .wrapper {

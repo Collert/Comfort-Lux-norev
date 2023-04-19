@@ -4,6 +4,12 @@ export default function Header (props) {
 
     const [onTop, setOnTop] = React.useState(true)
 
+    function scrollIntoMiddle(e) {
+        e.preventDefault()
+        // console.log(e.target.href.split('#')[1])
+        document.querySelector(`#${e.target.href.split('#')[1]}`).scrollIntoView({block:'center'});
+    }
+
     React.useEffect(()=>{
         window.addEventListener('scroll', ()=>{
             window.scrollY === 0 ? setOnTop(true) : setOnTop(false)
@@ -22,13 +28,13 @@ export default function Header (props) {
                 </svg>
             </div>
             <div className="menu">
-                <div><a href="#hero" className="menu-item active">STRONA GŁÓWNA</a></div>
-                <div><a href="#hero" className="menu-item">O NAS</a></div>
-                <div><a href="#hero" className="menu-item">ZAKRES USŁUG</a></div>
-                <div><a href="#gallery" className="menu-item">PORTFOLIO</a></div>
-                <div><a href="#gallery" className="menu-item">DLA CZEGO MY?</a></div>
-                <div><a href="#gallery" className="menu-item">OPINIE KLIENTÓW</a></div>
-                <div><a href="#gallery" className="menu-item">KONTAKT</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#hero" className="menu-item active">STRONA GŁÓWNA</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#about-us" className="menu-item">O NAS</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#five-bullet-points" className="menu-item">ZAKRES USŁUG</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">PORTFOLIO</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">DLA CZEGO MY?</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">OPINIE KLIENTÓW</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">KONTAKT</a></div>
             </div>
         </header>
     )
