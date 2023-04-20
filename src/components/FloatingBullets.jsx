@@ -1,8 +1,18 @@
 import React from "react";
+import "../styles/services.css"
+import { useInView } from "react-intersection-observer";
 
 export default function FloatingBullets () {
+
+    const [visible, setVisible] = React.useState(false)
+    const { ref, inView } = useInView();
+
+    React.useEffect(()=>{
+        if (inView) {setVisible(true)}
+    },[inView])
+
     return (
-        <section id="five-bullet-points">
+        <section ref={ref} className={visible ? "animate" : ""} id="five-bullet-points">
             <div className="bullet-column">
                 <div className="floating-bullet">
                     <div className="wrapper">

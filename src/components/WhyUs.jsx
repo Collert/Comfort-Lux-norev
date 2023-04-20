@@ -1,9 +1,13 @@
 import React from "react";
 import "../styles/whyus.css"
+import { useInView } from "react-intersection-observer";
 
 export default function WhyUs() {
+
+    const { ref, inView } = useInView();
+
     return (
-        <section id="why-us">
+        <section ref={ref} className={inView ? "animate" : ""} id="why-us">
             <h2>Dlaczego my?</h2>
             <div className="points">
                 <div className="point">

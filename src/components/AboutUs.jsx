@@ -1,7 +1,10 @@
 import React from "react";
 import '../styles/aboutus.css'
+import { useInView } from "react-intersection-observer";
 
 export default function AboutUs () {
+    const { ref, inView } = useInView();
+
     return (
         <section id="about-us">
             <div className="text">
@@ -13,7 +16,7 @@ export default function AboutUs () {
                     projektami.
                 </p>
                 <h3>Zalety naszej firmy</h3>
-                <ul>
+                <ul ref={ref} className={inView ? "animate" : ""} id="reasons">
                     <li><span>Wysoki standard usług</span></li>
                     <li><span>Bez ukrytych kosztów</span></li>
                     <li><span>Wycena przed zawarciem umowy</span></li>

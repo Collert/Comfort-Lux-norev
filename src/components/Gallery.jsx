@@ -2,6 +2,7 @@ import React from "react";
 import GalleryPanel from "./gallery/GalleryPanel";
 import "../styles/gallery.css"
 import FullGallery from "./gallery/FullGallery";
+import { useInView } from "react-intersection-observer";
 
 export default function Gallery () {
 
@@ -9,8 +10,14 @@ export default function Gallery () {
     const [prevActivePanel, setPrevActivePanel] = React.useState(1)
     const [fullGallery, setFullGallery] = React.useState(false)
     const [renderFullGallery, setRenderFullGallery] = React.useState(false)
+    const [visible, setVisible] = React.useState(false)
+    const { ref, inView } = useInView();
 
     const accordion = React.useRef()
+
+    React.useEffect(()=>{
+        if (inView){setVisible(true)}
+    },[inView])
 
     function expandGallery() {
         accordion.current.scrollIntoView({block:"center"})
@@ -27,7 +34,7 @@ export default function Gallery () {
 
     return (
         <>
-        <section id="gallery" className={`${fullGallery ? 'full' : ''} ${renderFullGallery ? 'rendered' : ''}`}>
+        <section ref={ref} id="gallery" className={`${fullGallery ? 'full' : ''} ${renderFullGallery ? 'rendered' : ''}`}>
             {!renderFullGallery ? 
 
             <div ref={accordion} className="accordion">
@@ -39,6 +46,7 @@ export default function Gallery () {
                     setActivePanel={setActivePanel}
                     setPrevActivePanel={setPrevActivePanel}
                     prevActivePanel={prevActivePanel}
+                    visible={visible}
                 />
                 <GalleryPanel 
                     id={2}
@@ -48,6 +56,7 @@ export default function Gallery () {
                     setActivePanel={setActivePanel}
                     setPrevActivePanel={setPrevActivePanel}
                     prevActivePanel={prevActivePanel}
+                    visible={visible}
                 />
                 <GalleryPanel 
                     id={3}
@@ -57,6 +66,7 @@ export default function Gallery () {
                     setActivePanel={setActivePanel}
                     setPrevActivePanel={setPrevActivePanel}
                     prevActivePanel={prevActivePanel}
+                    visible={visible}
                 />
                 <GalleryPanel 
                     id={4}
@@ -66,9 +76,12 @@ export default function Gallery () {
                     setActivePanel={setActivePanel}
                     setPrevActivePanel={setPrevActivePanel}
                     prevActivePanel={prevActivePanel}
+                    visible={visible}
                 />
-                <div className={`full-gallery-wrapper ${fullGallery ? 'animate' : ''} ${renderFullGallery ? 'rendered' : ''}`}>
-                    <div onClick={expandGallery} className="panel full-gallery-button">
+                <div className={`full-gallery-wrapper 
+                                ${fullGallery ? 'animate' : ''} 
+                                ${renderFullGallery ? 'rendered' : ''}`}>
+                    <div onClick={expandGallery} className={`panel full-gallery-button ${visible ? 'appear' : ''}`}>
                         <span>W</span>
                         <span>I</span>
                         <span>Ę</span>

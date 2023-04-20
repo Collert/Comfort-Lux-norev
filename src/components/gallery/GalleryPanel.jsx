@@ -36,7 +36,8 @@ export default function GalleryPanel (props) {
         <div onClick={handleClick} className={`panel 
                                             ${props.active === props.id ? "active-panel" : ""} 
                                             ${props.prevActivePanel === props.id ? "was-active" : ""} 
-                                            ${dictionary[props.theme].backgroundImg}`}
+                                            ${dictionary[props.theme].backgroundImg}
+                                            ${props.visible ? "appear" : ""}`}
             >
             <div className="panel-content-wrapper">
                 <button
