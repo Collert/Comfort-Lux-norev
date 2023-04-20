@@ -18,7 +18,7 @@ export default function Header (props) {
     return (
         <header className={!onTop ? "scrolled" : ""}>
             <div className="logo">
-                <span></span>
+                <img src="./branding/logo/original/logo-transparent-landscape.png" alt="logo"/>
             </div>
             <div className="divider">
                 <svg id="divider-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 258.25" width='50px' height='50px'>

@@ -49,6 +49,12 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
 }
 
+.logo img {
+    height: var(--header-height);
+    margin: -1rem;
+    padding: 1rem;
+}
+
 header {
     height: var(--header-height);
     background: transparent;

@@ -3,7 +3,7 @@
 #contact {
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 2fr 1fr;
 }
 
 #contact h2 {
@@ -51,4 +51,7 @@ textarea:focus-visible {
 
 #contact .info {
     text-align: right;
+}
+#contact .info img {
+    max-width: 50%;
 }

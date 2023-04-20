@@ -10,6 +10,7 @@ export default function Contact () {
     return (
         <section id="contact">
             <form onSubmit={onSubmit}>
+                <h2>Umów się na<br/> bezpłatną wycenę!</h2>
                 <input type="text" placeholder="Imię"/>
                 <input type="tel" placeholder="Numer telefonu"/>
                 <input type="email" placeholder="E-mail"/>
@@ -17,8 +18,8 @@ export default function Contact () {
                 <textarea placeholder="Komentarz"></textarea>
                 <button className="accent">WYŚLIJ</button>
             </form>
-            <h2>Umów się na<br/> bezpłatną wycenę!</h2>
             <div className="info">
+                <img src="./branding/logo/original/logo-transparent.png" alt="logo"/>
                 <h3>Сomfort Lux Sp. Z o.o.</h3>
                 NIP 5252804077<br/>
                 Adres: ul. Marszałkowska 58/15, 00-545 Warszawa<br/>
