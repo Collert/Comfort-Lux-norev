@@ -12,6 +12,7 @@ section#five-bullet-points {
     display: grid;
     grid-template-rows: 1fr 1fr;
     place-items: center;
+    gap: 4rem;
 }
 
 .bullet-column:nth-child(2) {
@@ -28,6 +29,18 @@ section#five-bullet-points {
     place-items: center;
     max-width: 90%;
     overflow-y: visible;
+}
+
+.floating-bullet {
+    height: 100%;
+}
+
+.floating-bullet:nth-child(1) {
+    place-items: end center;
+}
+
+.floating-bullet:nth-child(2) {
+    place-items: start center;
 }
 
 .floating-bullet:hover {
