@@ -24,4 +24,4 @@ jobs:
 
     - name: Build
       run: |
-        npx run build
+        npm run build
