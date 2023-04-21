@@ -1,0 +1,147 @@
+:root {
+    --about-us-padding-top: 1rem;
+    --about-us-padding-bottom: 3rem;
+    --about-us-padding-sides: 5rem;
+}
+
+#about-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: var(--about-us-padding-top) var(--about-us-padding-sides);
+    /* background: white; */
+    /* background: url(../../public/ai_illustrations/marble_texture_crop.png); */
+    /* background-repeat: no-repeat; */
+    /* background-position: right; */
+    margin-top: 0;
+    padding-bottom: var(--about-us-padding-bottom);
+    position: relative;
+    isolation: isolate;
+}
+
+#about-us::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to bottom, transparent 0%, var(--background-main) 100%);
+    bottom: 0;
+}
+
+#about-us .text {
+    padding: 3rem;
+}
+
+#about-us .text>h2 {
+    font-size: 40px;
+}
+
+#about-us .text>h3 {
+    font-size: 30px;
+}
+
+#about-us .text>p {
+    font-size: 20px;
+    color: var(--main-accent);
+}
+
+.img-container {
+    position: relative;
+    margin-top: calc(-1 * var(--about-us-padding-top));
+    margin-right: calc(-1 * var(--about-us-padding-sides));
+    margin-bottom: calc(-1 * var(--about-us-padding-bottom));
+    z-index: -1;
+}
+
+.img-container::before {
+    content: '';
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    background: linear-gradient(to right, var(--background-main) 0%, transparent 100%);
+    inset: 0;
+    z-index: 2;
+}
+
+.img-container>img,
+.img-container>video {
+    width: 100%;
+}
+
+.img-container>video {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0% 0% 0% 100%);
+    transition: clip-path 500ms ease;
+}
+
+.img-container:hover>video {
+    clip-path: inset(0% 0% 0% 0%);
+}
+
+#about-us li {
+    font-size: 20px;
+    position: relative;
+    margin-bottom: .5rem;
+}
+
+#about-us li span {
+    position: absolute;
+    top: 0%;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding-left: 1rem;
+    color: var(--main-accent);
+}
+
+#about-us li::marker {
+    fill: var(--main-accent);
+}
+
+#about-us li:nth-child(1)::marker {
+    content: url(../../public/icons/hotel_class_FILL0_wght400_GRAD0_opsz48.svg);
+}
+#about-us li:nth-child(2)::marker {
+    content: url(../../public/icons/credit_card_off_FILL0_wght400_GRAD0_opsz48.svg);
+}
+#about-us li:nth-child(3)::marker {
+    content: url(../../public/icons/request_quote_black_48dp.svg);
+}
+#about-us li:nth-child(4)::marker {
+    content: url(../../public/icons/checklist_black_48dp.svg);
+}
+#about-us li:nth-child(5)::marker {
+    content: url(../../public/icons/engineering_black_48dp.svg);
+}
+
+@keyframes reveal {
+    from {
+        transform: translateX(20%);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+#reasons.animate li:nth-child(1) {
+    animation: reveal 500ms ease both;
+}
+
+#reasons.animate li:nth-child(2) {
+    animation: reveal 500ms ease both 150ms;
+}
+
+#reasons.animate li:nth-child(3) {
+    animation: reveal 500ms ease both 300ms;
+}
+
+#reasons.animate li:nth-child(4) {
+    animation: reveal 500ms ease both 450ms;
+}
+
+#reasons.animate li:nth-child(5) {
+    animation: reveal 500ms ease both 600ms;
+}

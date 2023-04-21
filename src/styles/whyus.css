@@ -1,0 +1,66 @@
+@import url(../colors.css);
+
+#why-us {
+    grid-template-rows: auto auto;
+    place-items: center;
+}
+
+#why-us,
+#why-us .points,
+#why-us .point {
+    display: grid;
+}
+
+#why-us h3,
+#why-us h2 {
+    text-align: center;
+}
+
+#why-us h3 {
+    margin: .5rem;
+}
+
+#why-us h2 {
+    font-size: 48px;
+}
+
+#why-us .points {
+    grid-template-columns: repeat(5, 1fr);
+    width: 80%;
+}
+
+#why-us .point {
+    place-items: start center;
+    grid-template-rows: 1fr 1fr;
+}
+
+#why-us.animate .point {
+    animation: appear 400ms ease both;
+}
+
+#why-us.animate .point:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+#why-us.animate .point:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+#why-us.animate .point:nth-child(4) {
+    animation-delay: 300ms;
+}
+
+#why-us.animate .point:nth-child(5) {
+    animation-delay: 400ms;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}

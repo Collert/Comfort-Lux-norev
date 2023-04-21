@@ -1,0 +1,407 @@
+:root {
+    --_gallery-height: 60vh;
+}
+
+#gallery {
+    --_buttons-background-color: white;
+    --_panel-width: 4rem;
+    
+    display: grid;
+    place-items: center;
+    height: var(--_gallery-height);
+    position: relative;
+    isolation: isolate;
+}
+
+#gallery:hover {
+    z-index: 20;
+}
+
+.accordion {
+    --accordion-width: 75vw;
+
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    max-width: var(--accordion-width);
+    height: var(--_gallery-height);
+}
+
+.accordion .panel {
+    --_active-panel-width: 40vw;
+    --_active-panel-padding: 1.5rem 2rem;
+    --_panel-border-radius: 10vh;
+    --_active-panel-border-radius: 0.8rem;
+    --_icon-padding: .5rem;
+    --_icon-font-size: 30px;
+    --_icon-height: calc(var(--_icon-font-size) + 2*var(--_icon-padding));
+
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--_panel-border-radius);
+    width: var(--_panel-width);
+    overflow: hidden;
+    transition: all 500ms ease, border-radius 300ms ease;
+    display: grid;
+    place-items: end start;
+    isolation: isolate;
+    padding: 1.5rem .2rem;
+}
+
+.accordion .panel.was-active {
+    border-radius: var(--_active-panel-border-radius);
+    transition: all 500ms ease, border-radius 300ms ease 500ms;
+}
+
+.accordion .panel,
+.accordion .panel * {
+    cursor: pointer;
+    margin: 0;
+}
+
+.accordion .panel.active-panel,
+.accordion .panel.active-panel * {
+    cursor: default;
+    text-overflow: ellipsis;
+}
+
+.accordion .panel .panel-content-wrapper {
+    display: grid;
+    place-items: end center;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+}
+
+.accordion .panel.active-panel .panel-content-wrapper {
+    /* grid-template-columns: auto 1fr; */
+    gap: 2rem;
+    place-items: end start;
+}
+
+.accordion .panel.active-panel {
+    border-radius: var(--_active-panel-border-radius);
+    width: var(--_active-panel-width);
+    padding: var(--_active-panel-padding);
+}
+
+.accordion .panel.kitchens-img {
+    background-image: url(../../public/ai_illustrations/kitchen.png);
+}
+
+.accordion .panel.bathrooms-img {
+    background-image: url(../../public/ai_illustrations/bathroom.png);
+}
+
+.accordion .panel.bedrooms-img {
+    background-image: url(../../public/ai_illustrations/bedroom.png);
+}
+
+.accordion .panel.living-img {
+    background-image: url(../../public/ai_illustrations/livery.png);
+}
+
+.active-panel .accordion-icon {
+    font-size: 30px;
+}
+
+.accordion-icon {
+    background-color: var(--_buttons-background-color);
+    border-radius: 50%;
+    padding: var(--_icon-padding);
+    font-size: var(--_icon-font-size);
+}
+
+.accordion-trigger {
+    background: transparent;
+    border: none;
+    display: grid;
+    height: var(--_icon-height);
+    place-items: center;
+    transition: height 500ms ease;
+    
+}
+
+.active-panel .accordion-trigger {
+    height: 100%;
+}
+
+.panel-content {
+    display: grid;
+    gap: .5rem;
+    /* position: relative; */
+}
+
+.panel-content p,
+.panel-content h2 {
+    cursor: default;
+    color: white;
+}
+
+.panel.was-active:not(.active-panel) .panel-content-wrapper,
+.panel.active-panel:not(.was-active) .panel-content-wrapper {
+    width: calc(var(--_active-panel-width) - 4rem);
+}
+
+.accordion .panel .panel-content-wrapper::after {
+    content: '';
+    background: linear-gradient(180deg, rgba(209,175,148,0) 20%, rgba(0,0,0,1) 100%);
+    position: absolute;
+    width: var(--_panel-width);
+    height: calc(2*var(--_icon-height));
+    left: 0;
+    z-index: -1;
+    border-radius: var(--_panel-border-radius);
+    margin: -1.5rem -.2rem;
+    transition: all 500ms ease, border-radius 0ms linear;
+}
+
+.accordion .panel.active-panel .panel-content-wrapper::after {
+    margin: -1.5rem -2rem;
+    width: var(--_active-panel-width);
+    border-radius: var(--_active-panel-border-radius);
+    height: 200%;
+}
+
+.accordion .panel.was-active .panel-content-wrapper::after {
+    transition: all 500ms ease, border-radius 300ms ease 500ms;
+}
+
+.panel.full-gallery-button {
+    background-color: var(--main-accent);
+    display: grid;
+    place-items: center;
+    transition: all 500ms ease;
+    border: 3px solid transparent;
+    height: 100%;
+}
+
+.panel.full-gallery-button:hover {
+    background-color: var(--_buttons-background-color);
+    border: 3px solid var(--main-accent);
+}
+
+.full-gallery-button>span {
+    width: 1em;
+    font-size: 40px;
+    text-align: center;
+    color: var(--text-dark);
+    transition: all 500ms ease;
+}
+
+.full-gallery-button>span:nth-child(odd) {
+    transform: translateX(250%);
+}
+
+.full-gallery-button>span:nth-child(even) {
+    transform: translateX(-250%);
+}
+
+.full-gallery-button>span.material-symbols-outlined {
+    color: var(--text-dark);
+    transform: none;
+    font-size: 50px;
+}
+
+.full-gallery-button:hover>span {
+    color: var(--main-accent);
+    transform: none;
+}
+
+#gallery.full .full-gallery-button>span {
+    animation: neutralize-letters 200ms ease forwards;
+}
+
+#gallery.full .panel:not(.full-gallery-button) {
+    animation: hide-panel 500ms ease forwards;
+}
+
+#gallery.full .panel:not(.full-gallery-button):nth-child(2) {
+    animation-delay: 50ms;
+}
+
+#gallery.full .panel:not(.full-gallery-button):nth-child(3) {
+    animation-delay: 100ms;
+}
+
+#gallery.full .panel:not(.full-gallery-button):nth-child(4) {
+    animation-delay: 150ms;
+}
+
+@keyframes hide-panel {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20vh);
+    }
+}
+
+@keyframes neutralize-letters {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes expand-gallery-wrapper {
+    from {
+        top: 0;
+        left: 0;
+        border-radius: 3rem;
+    }
+    to {
+        /* top: calc(-50vh + var(--_gallery-height) + 1rem - 50%); */
+        left: calc(-100vw + var(--accordion-width));
+        transform: translateX(-100%);
+        border-radius: 1rem;
+    }
+}
+
+.full-gallery-wrapper {
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.full-gallery-wrapper.animate {
+    animation: expand-gallery-wrapper 1s ease forwards;
+}
+
+.full-gallery-wrapper.animate>.full-gallery-button {
+    background-color: var(--_buttons-background-color);
+    border: 3px solid var(--main-accent);
+}
+
+.full-gallery-wrapper.rendered {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+
+#gallery.rendered {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+#gallery.rendered::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    /* filter: blur(1rem); */
+    animation: blur-bg 2s ease;
+}
+
+@keyframes squish-filler {to {height: 0vh;}}
+
+.gallery-filler {
+    height: var(--_gallery-height);
+    animation: squish-filler 2s ease forwards;
+}
+
+@keyframes reveal-gallery {
+    from {
+        height: var(--_gallery-height);
+        width: var(--_panel-width);
+    }
+}
+
+@keyframes reveal-gallery-content {from {opacity: 0;} to {opacity: 1;}}
+
+@keyframes blur-bg {from {opacity: 0;}}
+
+.full-gallery {
+    height: 90vh;
+    width: 90%;
+    background-color: var(--_buttons-background-color);
+    border-radius: 1rem;
+    border: 3px solid var(--main-accent);
+    animation: reveal-gallery 2s ease;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    z-index: 20;
+}
+
+.full-gallery>* {
+    animation: reveal-gallery-content 1s ease;
+}
+
+.full-gallery .gallery-content {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.full-gallery nav {
+    padding: .5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.full-gallery nav>* {
+    cursor: pointer;
+}
+
+.full-gallery nav,
+.full-gallery .gallery-content {
+    width: 100%;
+}
+
+.gallery-image {
+    max-width: 10vw;
+}
+
+.gallery-image-wrapper {
+    display: grid;
+    place-items: center;
+}
+
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateX(25%);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.panel.appear:nth-child(1) {
+    animation: appear 300ms ease-in-out both;
+}
+
+.panel.appear:nth-child(2) {
+    animation: appear 300ms ease-in-out both 100ms;
+}
+
+.panel.appear:nth-child(3) {
+    animation: appear 300ms ease-in-out both 200ms;
+}
+
+.panel.appear:nth-child(4) {
+    animation: appear 300ms ease-in-out both 300ms;
+}
+
+.panel.appear:nth-child(5) {
+    animation: appear 300ms ease-in-out both 400ms;
+}

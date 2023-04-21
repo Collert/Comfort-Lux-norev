@@ -1,0 +1,156 @@
+@import url(colors.css);
+
+:root {
+    --header-height: 10vh;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+section {
+    margin: 1rem 0;
+}
+
+span.nav-anchor {
+    display: block;
+    transform: translateY(-50vh);
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--background-main);
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+    text-shadow: 5px 5px 30px rgba(0, 0, 0, 0.623); /* Idk how I feel about this tho */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+}
+
+.logo>span {
+    background-color: var(--main-accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.logo img {
+    height: var(--header-height);
+    margin: -1rem;
+    padding: 1rem;
+}
+
+header {
+    height: var(--header-height);
+    background: transparent;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    position: fixed;
+    width: 100vw;
+    transition: all 200ms ease;
+    border-bottom: none;
+    z-index: 5;
+}
+
+header::after {
+    content: '';
+    left: 0;
+    bottom: -50%;
+    position: absolute;
+    width: 100%;
+    transition: all 200ms ease;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent 0%, transparent 100%);
+}
+
+header.scrolled {
+    background: var(--background-main);
+    /* border-bottom: 1px solid black; */
+}
+
+header.scrolled::after {
+    background: linear-gradient(to bottom, var(--background-main)0%, transparent 100%);
+}
+
+#divider-svg {
+    fill: var(--main-accent);
+}
+
+header>.menu {
+    display: flex;
+    gap: 1rem;
+}
+
+header>div,
+header>.menu>div {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.menu-item {
+    color: var(--text-light);
+    transition: all 250ms ease;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    color: var(--main-accent);
+    font-size: 20px;
+}
+
+section.hero {
+    background-image: url(../public/ai_illustrations/hero_section.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    margin-top: 0;
+    overflow-x: hidden;
+    margin-bottom: 0;
+}
+
+section.hero .wrapper {
+    height: 100%;
+    display: grid;
+    place-items: center start;
+    padding: 0 10rem;
+}
+
+section.hero .wrapper>div>* {
+    max-width: 30vw;
+}
+
+section.hero .wrapper p {
+    line-height: 1.9rem;
+    color: var(--text-light);
+    margin: 2rem 0;
+}
+
+a.accent,
+button.accent {
+    background-color: var(--main-accent);
+    border: none;
+    border-radius: 100vh;
+    padding: 1.3rem 2.3rem;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: -8px 10px 20px #0000004a;
+    color: var(--text-dark);
+}
