@@ -22,7 +22,8 @@ export default function Gallery (props) {
             ...prev,
             gallery:inView
         }))
-    },[inView, props])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[inView])
 
     function expandGallery() {
         accordion.current.scrollIntoView({block:"center"})

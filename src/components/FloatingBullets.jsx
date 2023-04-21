@@ -13,7 +13,8 @@ export default function FloatingBullets (props) {
             ...prev,
             services:inView
         }))
-    },[inView, props])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[inView])
 
     return (
         <section ref={ref} className={visible ? "animate" : ""} id="five-bullet-points">

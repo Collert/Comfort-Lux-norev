@@ -11,7 +11,8 @@ export default function AboutUs (props) {
             ...prev,
             about:inView
         }))
-    },[inView, props])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[inView])
 
     React.useEffect(()=>{
         video.current.addEventListener("mouseenter", ()=>{
