@@ -2,9 +2,16 @@ import React from "react";
 import "../styles/whyus.css"
 import { useInView } from "react-intersection-observer";
 
-export default function WhyUs() {
+export default function WhyUs(props) {
 
     const { ref, inView } = useInView();
+
+    React.useEffect(()=>{
+        props.setVisibleSections(prev=>({
+            ...prev,
+            whyUs:inView
+        }))
+    },[inView, props])
 
     return (
         <section ref={ref} className={inView ? "animate" : ""} id="why-us">

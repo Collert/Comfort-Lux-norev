@@ -4,7 +4,7 @@ import "../styles/gallery.css"
 import FullGallery from "./gallery/FullGallery";
 import { useInView } from "react-intersection-observer";
 
-export default function Gallery () {
+export default function Gallery (props) {
 
     const [activePanel, setActivePanel] = React.useState(1)
     const [prevActivePanel, setPrevActivePanel] = React.useState(1)
@@ -17,7 +17,11 @@ export default function Gallery () {
 
     React.useEffect(()=>{
         if (inView){setVisible(true)}
-    },[inView])
+        props.setVisibleSections(prev=>({
+            ...prev,
+            gallery:inView
+        }))
+    },[inView, props])
 
     function expandGallery() {
         accordion.current.scrollIntoView({block:"center"})

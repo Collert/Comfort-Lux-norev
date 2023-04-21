@@ -2,9 +2,16 @@ import React from "react";
 import '../styles/aboutus.css'
 import { useInView } from "react-intersection-observer";
 
-export default function AboutUs () {
+export default function AboutUs (props) {
     const { ref, inView } = useInView();
     const video = React.useRef();
+
+    React.useEffect(()=>{
+        props.setVisibleSections(prev=>({
+            ...prev,
+            about:inView
+        }))
+    },[inView, props])
 
     React.useEffect(()=>{
         video.current.addEventListener("mouseenter", ()=>{

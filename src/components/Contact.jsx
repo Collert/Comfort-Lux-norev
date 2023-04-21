@@ -1,14 +1,24 @@
 import React from "react";
 import "../styles/contact.css"
+import { useInView } from "react-intersection-observer";
 
-export default function Contact () {
+export default function Contact (props) {
+
+    const { ref, inView } = useInView();
+
+    React.useEffect(()=>{
+        props.setVisibleSections(prev=>({
+            ...prev,
+            contact:inView
+        }))
+    },[inView, props])
 
     function onSubmit(e) {
         e.preventDefault()
     }
 
     return (
-        <section id="contact">
+        <section ref={ref} id="contact">
             <form onSubmit={onSubmit}>
                 <h2>Umów się na<br/> bezpłatną wycenę!</h2>
                 <input type="text" placeholder="Imię"/>

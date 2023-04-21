@@ -2,14 +2,18 @@ import React from "react";
 import "../styles/services.css"
 import { useInView } from "react-intersection-observer";
 
-export default function FloatingBullets () {
+export default function FloatingBullets (props) {
 
     const [visible, setVisible] = React.useState(false)
     const { ref, inView } = useInView();
 
     React.useEffect(()=>{
         if (inView) {setVisible(true)}
-    },[inView])
+        props.setVisibleSections(prev=>({
+            ...prev,
+            services:inView
+        }))
+    },[inView, props])
 
     return (
         <section ref={ref} className={visible ? "animate" : ""} id="five-bullet-points">

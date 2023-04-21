@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/workwithus.css"
 import { useInView } from "react-intersection-observer";
 
-export default function WorkWithUs() {
+export default function WorkWithUs(props) {
 
     const [visible, setVisible] = React.useState(false)
 
@@ -10,7 +10,11 @@ export default function WorkWithUs() {
 
     React.useEffect(()=>{
         if (inView) {setVisible(true)}
-    },[inView])
+        props.setVisibleSections(prev=>({
+            ...prev,
+            workWithUs:inView
+        }))
+    },[inView, props])
 
     return (
         <section ref={ref} className={visible ? 'animate' : ''} id="timeline">

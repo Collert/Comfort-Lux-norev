@@ -1,8 +1,19 @@
 import React from "react";
+import { useInView } from "react-intersection-observer";
 
-export default function Hero () {
+export default function Hero (props) {
+
+    const { ref, inView } = useInView();
+
+    React.useEffect(()=>{
+        props.setVisibleSections(prev=>({
+            ...prev,
+            hero:inView
+        }))
+    },[inView, props])
+
     return (
-        <section id="hero" className="hero">
+        <section ref={ref} id="hero" className="hero">
             <div className="wrapper">
                 <div>
                     <h1>Wykończenia wnętrz</h1>

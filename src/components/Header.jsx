@@ -27,13 +27,13 @@ export default function Header (props) {
                 </svg>
             </div>
             <div className="menu">
-                <div><a onClick={scrollIntoMiddle} href="#hero" className="menu-item active">STRONA GŁÓWNA</a></div>
-                <div><a onClick={scrollIntoMiddle} href="#about-us" className="menu-item">O NAS</a></div>
-                <div><a onClick={scrollIntoMiddle} href="#five-bullet-points" className="menu-item">ZAKRES USŁUG</a></div>
-                <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">PORTFOLIO</a></div>
-                <div><a onClick={scrollIntoMiddle} href="#why-us" className="menu-item">DLA CZEGO MY?</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#hero" className={`menu-item ${props.visibleSections.hero ? "active" : ""}`}>STRONA GŁÓWNA</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#about-us" className={`menu-item ${props.visibleSections.about ? "active" : ""}`}>O NAS</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#five-bullet-points" className={`menu-item ${props.visibleSections.services ? "active" : ""}`}>ZAKRES USŁUG</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#gallery" className={`menu-item ${props.visibleSections.gallery ? "active" : ""}`}>PORTFOLIO</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#why-us" className={`menu-item ${props.visibleSections.whyUs ? "active" : ""}`}>DLA CZEGO MY?</a></div>
                 {/* <div><a onClick={scrollIntoMiddle} href="#gallery" className="menu-item">OPINIE KLIENTÓW</a></div> */}
-                <div><a onClick={scrollIntoMiddle} href="#contact" className="menu-item">KONTAKT</a></div>
+                <div><a onClick={scrollIntoMiddle} href="#contact" className={`menu-item ${props.visibleSections.contact ? "active" : ""}`}>KONTAKT</a></div>
             </div>
         </header>
     )
