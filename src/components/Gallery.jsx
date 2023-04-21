@@ -10,6 +10,7 @@ export default function Gallery (props) {
     const [prevActivePanel, setPrevActivePanel] = React.useState(1)
     const [fullGallery, setFullGallery] = React.useState(false)
     const [renderFullGallery, setRenderFullGallery] = React.useState(false)
+    const [startClosingGallery, setStartClosingGallery] = React.useState(false)
     const [visible, setVisible] = React.useState(false)
     const { ref, inView } = useInView();
 
@@ -32,13 +33,17 @@ export default function Gallery (props) {
     }
 
     function closeGallery() {
-        setFullGallery(false)
-        setRenderFullGallery(false)
+        setStartClosingGallery(true)
+        setTimeout(() => {
+            setFullGallery(false)
+            setRenderFullGallery(false)
+            setStartClosingGallery(false)
+        }, 500);
     }
 
     return (
         <>
-        <section ref={ref} id="gallery" className={`${fullGallery ? 'full' : ''} ${renderFullGallery ? 'rendered' : ''}`}>
+        <section ref={ref} id="gallery" className={`${fullGallery ? "full" : ""} ${renderFullGallery ? "rendered" : ""}`}>
             {!renderFullGallery ? 
 
             <div ref={accordion} className="accordion">
@@ -99,8 +104,8 @@ export default function Gallery (props) {
                 </div>
             </div>
             :
-            <FullGallery closeGallery={closeGallery}/>}
+            <FullGallery startClosingGallery={startClosingGallery} closeGallery={closeGallery}/>}
         </section>
-        {renderFullGallery && <div className="gallery-filler"></div>}</>
+        {renderFullGallery && <div className={`gallery-filler ${startClosingGallery ? "revert" : ""}`}></div>}</>
     )
 }
