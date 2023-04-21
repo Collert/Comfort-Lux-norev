@@ -30,6 +30,10 @@ section#five-bullet-points {
     overflow-y: visible;
 }
 
+.floating-bullet:hover {
+    z-index: 2;
+}
+
 .floating-bullet>.wrapper {
     gap: 1rem;
 }
