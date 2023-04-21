@@ -4,6 +4,16 @@ import { useInView } from "react-intersection-observer";
 
 export default function AboutUs () {
     const { ref, inView } = useInView();
+    const video = React.useRef();
+
+    React.useEffect(()=>{
+        video.current.addEventListener("mouseenter", ()=>{
+            video.current.play();
+        })
+        video.current.addEventListener("mouseleave", ()=>{
+            video.current.pause();
+        })
+    },[])
 
     return (
         <section id="about-us">
@@ -26,6 +36,8 @@ export default function AboutUs () {
             </div>
             <div className="img-container">
                 {/* <img alt="render of a kitchen" src="./ai_illustrations/kitchen_cropout.png"/> */}
+                <img src="./ai_illustrations/marble_texture_crop.png" alt=""/>
+                <video loop muted ref={video} src="./ai_illustrations/marble-piece-2.mp4"></video>
             </div>
         </section>
     )
