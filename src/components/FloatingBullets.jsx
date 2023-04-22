@@ -101,7 +101,7 @@ export default function FloatingBullets (props) {
                         </div>
                     </div>
                 </div>
-                <img id="brush-illustration" alt="golden paintbrush" src="/ai_illustrations/brush.png"/>
+                <img id="brush-illustration" alt="golden paintbrush" src="./ai_illustrations/brush.png"/>
                 <div className="floating-bullet">
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">bolt</span></div>
