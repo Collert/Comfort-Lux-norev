@@ -385,7 +385,7 @@
 }
 
 .full-gallery nav {
-    padding: .5rem;
+    padding: .5rem 1rem;
     display: flex;
     gap: 1rem;
 }
@@ -401,6 +401,8 @@
 
 .gallery-image {
     max-width: 10vw;
+    transition: transform 300ms ease;
+    border-radius: 10px;
 }
 
 .gallery-image-wrapper {
@@ -408,7 +410,9 @@
     place-items: center;
 }
 
-
+.gallery-image:hover {
+    transform: scale(120%);
+}
 
 @keyframes appear {
     from {
