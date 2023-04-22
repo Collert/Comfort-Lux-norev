@@ -6,22 +6,26 @@ export default function GalleryPanel (props) {
         "bathroom":{
             icon:"shower",
             title:"Łazienki",
-            backgroundImg:"bathrooms-img"
+            backgroundImg:"bathrooms-img",
+            description:"Ulepsz swoją przestrzeń, odśwież swój styl i popraw swoją codzienną rutynę"
         },
         "kitchen":{
             icon:"kitchen",
             title:"Kuchnie",
-            backgroundImg:"kitchens-img"
+            backgroundImg:"kitchens-img",
+            description:"Zmodernizuj swój projekt, zmodernizuj swoje urządzenia i popraw swoje doznania związane z gotowaniem i rozrywką"
         },
         "livery":{
             icon:"chair",
             title:"Salony",
-            backgroundImg:"living-img"
+            backgroundImg:"living-img",
+            description:"Ulepsz swój układ, odśwież wystrój i popraw swój komfort i rozrywkę"
         },
         "bedroom":{
             icon:"bed",
             title:"Sypialnie",
-            backgroundImg:"bedrooms-img"
+            backgroundImg:"bedrooms-img",
+            description:"Odmień swoją przestrzeń, odśwież swój styl i zwiększ swój komfort i relaks"
         },
     }
 
@@ -56,7 +60,7 @@ export default function GalleryPanel (props) {
                 role="region"
                 >
                     <h2 className="panel-title" id={`panel${props.id}-title`}>{dictionary[props.theme].title}</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>{dictionary[props.theme].description}</p>
                 </div>}
             </div>
         </div>
