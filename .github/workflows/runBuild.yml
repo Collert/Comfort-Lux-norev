@@ -24,7 +24,8 @@ jobs:
 
     - name: Build
       run: |
-        git config user.email "mytyber@gmail.com"
-        git config user.name "Collert"
+        git config --global user.email "mytyber@gmail.com"
+        git config --global user.name "Collert"
+        git config --global --list
         npm install
         npm run deploy
