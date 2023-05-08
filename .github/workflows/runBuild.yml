@@ -26,6 +26,6 @@ jobs:
       run: |
         git config --global user.email "mytyber@gmail.com"
         git config --global user.name "Collert"
-        git remote set-url origin https://$Collert:${{ secrets.MY_PASSWORD }}@github.com/Collert/Comfort-Lux.git
+        git remote set-url origin https://Collert:${{ secrets.MY_PASSWORD }}@github.com/Collert/Comfort-Lux.git
         npm install
         npm run deploy
