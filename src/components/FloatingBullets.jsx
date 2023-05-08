@@ -44,7 +44,7 @@ export default function FloatingBullets (props) {
                                 <li>Demontaż karniszy</li>
                                 <li>Demontaż lamp</li>
                                 <li>Zerwanie tapet</li>
-                                <li>Wynos gruzu</li>
+                                <li>Wynos gruz</li>
                             </ul>
                         </div>
                     </div>
