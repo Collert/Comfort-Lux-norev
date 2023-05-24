@@ -4,6 +4,7 @@
 
 #gallery {
     --_buttons-background-color: white;
+    --accordion-width: 75vw;
     --_panel-width: 4rem;
     
     display: grid;
@@ -13,13 +14,7 @@
     isolation: isolate;
 }
 
-#gallery:hover {
-    /* z-index: 20; */
-}
-
 .accordion {
-    --accordion-width: 75vw;
-
     display: flex;
     gap: 1rem;
     flex-direction: row;
@@ -443,4 +438,41 @@
 
 .panel.appear:nth-child(5) {
     animation: appear 300ms ease-in-out both 400ms;
+}
+
+@media (orientation: portrait) {
+    #gallery {
+        --_panel-width: var(--accordion-width);
+        --_gallery-height: auto;
+    }
+    .accordion {
+        flex-direction: column;
+    }
+    .accordion .panel {
+        --_active-panel-width: var(--accordion-width);
+        height: 10vh;
+        place-items: center start;
+        padding: 1rem .2rem;
+    }
+    .accordion .panel.active-panel {
+        height: 30vh;
+        place-items: end start;
+    }
+    .panel.was-active:not(.active-panel) .panel-content-wrapper, 
+    .panel.active-panel:not(.was-active) .panel-content-wrapper {
+        width: 100%;
+    }
+    .panel .panel-content {
+        transition: all 400ms ease;
+    }
+    .panel.active-panel .panel-content {
+        max-height:25vh;
+    }
+    .panel.was-active:not(.active-panel) .panel-content {
+        max-height: 0;
+        opacity: 0;
+    } 
+    .panel.full-gallery-button {
+        place-items: center;
+    }
 }

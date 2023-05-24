@@ -82,36 +82,43 @@
 #about-us li {
     font-size: 20px;
     position: relative;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
 }
 
 #about-us li span {
-    position: absolute;
-    top: 0%;
     display: grid;
-    place-items: center;
-    height: 100%;
-    padding-left: 1rem;
     color: var(--main-accent);
+    position: static;
+    place-items: center start;
+    grid-template-columns: auto 1fr;
+    /* padding: 0; */
+    gap: 1rem;
+}
+
+#about-us ul {
+    padding: 0;
+}
+#about-us li {
+    display: block;
 }
 
 #about-us li::marker {
     fill: var(--main-accent);
 }
 
-#about-us li:nth-child(1)::marker {
+#about-us li:nth-child(1) span::before {
     content: url(../../public/icons/hotel_class_FILL0_wght400_GRAD0_opsz48.svg);
 }
-#about-us li:nth-child(2)::marker {
+#about-us li:nth-child(2) span::before {
     content: url(../../public/icons/credit_card_off_FILL0_wght400_GRAD0_opsz48.svg);
 }
-#about-us li:nth-child(3)::marker {
+#about-us li:nth-child(3) span::before {
     content: url(../../public/icons/request_quote_black_48dp.svg);
 }
-#about-us li:nth-child(4)::marker {
+#about-us li:nth-child(4) span::before {
     content: url(../../public/icons/checklist_black_48dp.svg);
 }
-#about-us li:nth-child(5)::marker {
+#about-us li:nth-child(5) span::before {
     content: url(../../public/icons/engineering_black_48dp.svg);
 }
 
@@ -144,4 +151,34 @@
 
 #reasons.animate li:nth-child(5) {
     animation: reveal 500ms ease both 600ms;
+}
+
+@media (orientation: portrait) {
+    #about-us {
+        padding: var(--about-us-padding-top) 2rem;
+        grid-template-columns: none;
+        overflow-x: hidden;
+    }
+    #about-us .text {
+        padding: 0;
+    }
+    .img-container {
+        display: none;
+    }
+    #about-us ul {
+        padding: 0;
+    }
+    #about-us li {
+        display: block;
+    }
+    #about-us li span {
+        position: static;
+        place-items: center start;
+        grid-template-columns: auto 1fr;
+        padding: 0;
+        gap: 1rem;
+    }
+    /* #about-us li span::before {
+        content: url(../../public/icons/hotel_class_FILL0_wght400_GRAD0_opsz48.svg);
+    } */
 }

@@ -3,6 +3,7 @@ import GalleryPanel from "./gallery/GalleryPanel";
 import "../styles/gallery.css"
 import FullGallery from "./gallery/FullGallery";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "react-responsive";
 
 export default function Gallery (props) {
 
@@ -13,6 +14,7 @@ export default function Gallery (props) {
     const [startClosingGallery, setStartClosingGallery] = React.useState(false)
     const [visible, setVisible] = React.useState(false)
     const { ref, inView } = useInView();
+    const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
 
     const accordion = React.useRef()
 
@@ -92,6 +94,8 @@ export default function Gallery (props) {
                                 ${fullGallery ? 'animate' : ''} 
                                 ${renderFullGallery ? 'rendered' : ''}`}>
                     <div onClick={expandGallery} className={`panel full-gallery-button ${visible ? 'appear' : ''}`}>
+                    {!isPortrait ? 
+                    <>
                         <span>W</span>
                         <span>I</span>
                         <span>Ę</span>
@@ -101,6 +105,13 @@ export default function Gallery (props) {
                         <span>C</span>
                         <span>E</span>
                         <span>J</span>
+                    </> :
+                    <>
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                    </>
+                    }
                     </div>
                 </div>
             </div>

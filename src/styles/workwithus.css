@@ -116,7 +116,8 @@
 }
 
 .animate #right-points h3,
-.animate #left-points h3 {
+.animate #left-points h3,
+.animate .right-side h3 {
     animation: text-animation var(--circle-animation-duration) calc((var(--segment-animation-duration) / 6) + var(--sequence-multiplier)) ease both;
 }
 
@@ -209,5 +210,34 @@
     to {
         transform: none;
         opacity: 1;
+    }
+}
+
+@media (orientation:portrait) {
+    #timeline {
+        grid-template-columns: none;
+        padding: 0 1rem;
+    }
+    #timeline h2 {
+        writing-mode: horizontal-tb;
+        text-orientation: sideways;
+    }
+    .mobile-points {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+    }
+    .mobile-points .right-side {
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+    }
+    #timeline .section {
+        height: auto;
+    }
+    #timeline .mobile-points .right-side .section {
+        place-items: center start;
+    }
+    #timeline h3 {
+        font-size: 15px;
     }
 }

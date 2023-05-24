@@ -6,6 +6,15 @@ export default function FloatingBullets (props) {
 
     const [visible, setVisible] = React.useState(false)
     const { ref, inView } = useInView();
+    const [expandedPoint, setExpandedPoint] = React.useState(null)
+
+    function expandPoint(e) {
+        if (expandedPoint === e.currentTarget.id) {
+            setExpandedPoint(null)
+        } else {
+            setExpandedPoint(e.currentTarget.id)
+        }
+    }
 
     React.useEffect(()=>{
         if (inView) {setVisible(true)}
@@ -19,7 +28,7 @@ export default function FloatingBullets (props) {
     return (
         <section ref={ref} className={visible ? "animate" : ""} id="five-bullet-points">
             <div className="bullet-column">
-                <div className="floating-bullet">
+                <div id="point-1" onClick={expandPoint} className={`floating-bullet ${"point-1" === expandedPoint ? "active" : ""}`}>
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">hardware</span></div>
                         <div><h3>Wyburzenia, Rozbiórki, Demontaże</h3></div>
@@ -49,7 +58,7 @@ export default function FloatingBullets (props) {
                         </div>
                     </div>
                 </div>
-                <div className="floating-bullet">
+                <div id="point-2" onClick={expandPoint} className={`floating-bullet ${"point-2" === expandedPoint ? "active" : ""}`}>
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">imagesearch_roller</span></div>
                         <div><h3>Prace Malarskie</h3></div>
@@ -71,7 +80,7 @@ export default function FloatingBullets (props) {
                 </div>
             </div>
             <div className="bullet-column">
-                <div className="floating-bullet">
+                <div id="point-3" onClick={expandPoint} className={`floating-bullet ${"point-3" === expandedPoint ? "active" : ""}`}>
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">construction</span></div>
                         <div><h3>Budowa / Przebudowa - Praca W Pomieszczeniach</h3></div>
@@ -102,7 +111,7 @@ export default function FloatingBullets (props) {
                     </div>
                 </div>
                 <img id="brush-illustration" alt="golden paintbrush" src="./ai_illustrations/brush.png"/>
-                <div className="floating-bullet">
+                <div id="point-4" onClick={expandPoint} className={`floating-bullet ${"point-4" === expandedPoint ? "active" : ""}`}>
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">bolt</span></div>
                         <div><h3>Elektryka</h3></div>
@@ -125,7 +134,7 @@ export default function FloatingBullets (props) {
                 </div>
             </div>
             <div className="bullet-column">
-                <div className="floating-bullet">
+                <div id="point-5" onClick={expandPoint} className={`floating-bullet ${"point-5" === expandedPoint ? "active" : ""}`}>
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">bathtub</span></div>
                         <div><h3>Łazienka, kuchnia</h3></div>
@@ -162,7 +171,7 @@ export default function FloatingBullets (props) {
                         </div>
                     </div>
                 </div>
-                <div className="floating-bullet">
+                <div id="point-6" onClick={expandPoint} className={`floating-bullet ${"point-6" === expandedPoint ? "active" : ""}`}>
                     <div className="wrapper">
                         <div><span className="material-symbols-outlined">plumbing</span></div>
                         <div><h3>Hydraulika</h3></div>

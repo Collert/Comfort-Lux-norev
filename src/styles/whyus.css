@@ -64,3 +64,9 @@
         transform: none;
     }
 }
+
+@media (orientation: portrait) {
+    #why-us .points {
+        grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    }
+}
