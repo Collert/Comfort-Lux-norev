@@ -1,7 +1,7 @@
 @import url(colors.css);
 
 :root {
-    --header-height: 10vh;
+    --header-height: 14vh;
 }
 
 html{
