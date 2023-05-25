@@ -94,16 +94,36 @@ header.expanded::after {
     fill: var(--main-accent);
 }
 
-header>.menu {
+header>.menu,
+header>.menu>div {
     display: flex;
     gap: 1rem;
 }
 
 header>div,
-header>.menu>div {
+header>.menu>div>div {
     display: grid;
     place-items: center;
     height: 100%;
+}
+
+header>.menu {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.phone {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: var(--main-accent);
+    padding: 1rem 2rem;
+    border-radius: 100vh;
+    gap: 1rem;
+    place-items: center;
+}
+
+.phone>span {
+    color: var(--text-dark)!important;
 }
 
 .menu-item {
