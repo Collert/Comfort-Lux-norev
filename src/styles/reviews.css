@@ -11,6 +11,12 @@
     flex-basis: 30%;
 }
 
+@media (orientation:portrait) {
+    .review-container {
+        flex-basis: 90%;
+    }
+}
+
 .review {
     min-height: 10vh;
     height: fit-content;
