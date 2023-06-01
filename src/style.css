@@ -104,7 +104,6 @@ header>div,
 header>.menu>div>div {
     display: grid;
     place-items: center;
-    height: 100%;
 }
 
 header>.menu {
@@ -129,6 +128,10 @@ header>.menu {
 .menu-item {
     color: var(--text-light);
     transition: all 250ms ease;
+    font-size: 15px;
+    text-align: center;
+    /* display: grid;
+    place-items: center; */
 }
 
 .menu-item:hover,
