@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import MobileHeader from './components/MobileHeader';
+import Reviews from './components/reviews/Reviews';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
     services:false,
     gallery:false,
     whyUs:false,
+    reviews:false,
     workWithUs:false,
     contact:false
   })
@@ -38,6 +40,7 @@ function App() {
       <FloatingBullets setVisibleSections={setVisibleSections}/>
       <Gallery setVisibleSections={setVisibleSections}/>
       <WhyUs setVisibleSections={setVisibleSections}/>
+      <Reviews setVisibleSections={setVisibleSections}/>
       <WorkWithUs isPortrait={isPortrait} setVisibleSections={setVisibleSections}/>
       <Contact setVisibleSections={setVisibleSections}/>
     </>

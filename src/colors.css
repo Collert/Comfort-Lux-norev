@@ -1,9 +1,39 @@
 :root {
-    --main-accent: #ecc147;
+    --main-accent: hsl(var(--_main-accent-h), var(--_main-accent-s), var(--_main-accent-l));
     /* --main-accent: #fc9c04; */
-    --wood-light: #93603f;
-    --wood-dark :#624a3a;
-    --background-main: #e5e2e0;
-    --text-dark: #42413f;
-    --text-light: #b3b3b3;
+    --_main-accent-h: 44;
+    --_main-accent-s: 81%;
+    --_main-accent-l: 60%;
+
+
+    --wood-light: hsl(var(--_wood-light-h), var(--_wood-light-s), var(--_wood-light-l));
+    --_wood-light-h: 24;
+    --_wood-light-s: 40%;
+    --_wood-light-l: 41%;
+
+
+    --wood-dark :hsl(var(--_wood-dark-h), var(--_wood-dark-s), var(--_wood-dark-l));
+    --_wood-dark-h: 24;
+    --_wood-dark-s: 26%;
+    --_wood-dark-l: 31%;
+
+
+    --background-main: hsl(var(--_background-main-h), var(--_background-main-s), var(--_background-main-l));
+    --_background-main-h: 24;
+    --_background-main-s: 9%;
+    --_background-main-l: 89%;
+
+
+    --text-dark: hsl(var(--_text-dark-h), var(--_text-dark-s), var(--_text-dark-l));
+    --_text-dark-h: 40;
+    --_text-dark-s: 2%;
+    --_text-dark-l: 25%;
+
+
+    --text-light: hsl(var(--_text-light-h), var(--_text-light-s), var(--_text-light-l));
+    --_text-light-h: 0;
+    --_text-light-s: 0%;
+    --_text-light-l: 70%;
+
+
 }
