@@ -45,7 +45,7 @@ export default function AboutUs (props) {
             <div className="img-container">
                 {/* <img alt="render of a kitchen" src="./ai_illustrations/kitchen_cropout.png"/> */}
                 <img src="./ai_illustrations/marble_texture_crop.png" alt=""/>
-                <video loop muted ref={video} src="./ai_illustrations/marble-piece-2.mp4"></video>
+                <video loop muted ref={video} src="./ai_illustrations/Untitled video - Made with Clipchamp.mp4"></video>
             </div>
         </section>
     )
