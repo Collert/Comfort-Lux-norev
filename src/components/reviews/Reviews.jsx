@@ -37,7 +37,6 @@ export default function Reviews(props) {
         },
     ]
     const reviews = reviewsArr.map(data => <Review review={data}/>)
-    console.log(reviewsArr)
 
     const { ref, inView } = useInView();
     

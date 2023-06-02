@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Review(props) {
     const {review} = props
-    console.log(review)
 
     return(
         <div className="review-container">
