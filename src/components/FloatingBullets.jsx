@@ -39,7 +39,7 @@ export default function FloatingBullets (props) {
                                 <li>Skucie starej posadzki</li>
                                 <li>Wyburzenie ścian działowych</li>
                                 <li>Demontaż mebli</li>
-                                <li>Demontaż glazury - terakoty</li>
+                                <li>Demontaż glazury terakoty</li>
                                 <li>Zerwanie starej farby</li>
                                 <li>Zerwanie tynków</li>
                                 <li>Poszerzenie otworów w ścianach</li>
