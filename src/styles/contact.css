@@ -27,6 +27,7 @@ form {
     place-items: center;
     gap: 1rem;
     width: 70%;
+    position: relative;
 }
 
 input,
@@ -58,6 +59,7 @@ textarea:focus-visible {
 
 #contact button {
     font-size: 20px;
+    cursor: pointer;
 }
 
 #contact .info {
@@ -70,6 +72,32 @@ textarea:focus-visible {
 .material-symbols-outlined.footer {
     font-size: 24px;
     color: var(--main-accent);
+}
+
+#thank-you-banner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--background-main);
+    animation: fade-in-ty-banner 5s ease;
+    display: grid;
+    place-items: center;
+}
+
+#thank-you-banner>span {
+    animation: fade-in-ty-text 5s ease;
+    font-size: x-large;
+    font-weight: 600;
+    text-align: center;
+}
+
+@keyframes fade-in-ty-banner {
+    from, to {opacity: 0;} 10%, 90% {opacity: 1;}
+}
+
+@keyframes fade-in-ty-text {
+    from, to, 10%, 90% {opacity: 0;}
+    20%, 80% {opacity: 1;}
 }
 
 @media (orientation: portrait) {
